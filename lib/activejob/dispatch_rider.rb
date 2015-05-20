@@ -7,7 +7,7 @@ module ActiveJob
 end
 
 require_relative "dispatch_rider/version"
-require_relative "dispatch_rider/dispatch_rider_active_job_handler"
+require_relative "dispatch_rider/job_handler"
 require_relative "dispatch_rider/handler_registrar_fallback"
 require_relative "queue_adapters/dispatch_rider_adapter"
 
