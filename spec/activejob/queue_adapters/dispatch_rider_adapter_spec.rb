@@ -52,6 +52,7 @@ describe ActiveJob::QueueAdapters::DispatchRiderAdapter do
 
         expect(foo_queued_item["subject"]).to eq("foo_aj_job")
         expect(foo_queued_item["body"]["job_class"]).to eq("FooAjJob")
+        expect(foo_queued_item["body"]["guid"]).to eq(foo_queued_item["body"]["job_id"])
         expect(foo_queued_item["body"]["queue_name"]).to eq("foo")
         expect(foo_queued_item["body"]["arguments"].first).to include("foo" => "bar")
       }
