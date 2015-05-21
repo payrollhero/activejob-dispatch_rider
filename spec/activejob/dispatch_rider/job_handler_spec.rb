@@ -27,7 +27,7 @@ describe ActiveJob::DispatchRider::JobHandler do
           "_aj_symbol_keys" => ["foo"]
         }
       ],
-      "guid" => "d9188320-580d-481f-a579-c3c521beccb8",
+      "guid" => "8b71ac6b-2854-4287-8d1b-15085b70280b",
     }
   }
 

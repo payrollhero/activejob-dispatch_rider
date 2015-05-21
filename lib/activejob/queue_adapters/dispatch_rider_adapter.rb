@@ -8,7 +8,7 @@ module ActiveJob
           publisher.publish destinations: Array(job.queue_name),
                             message: {
                               subject: job.class.name.underscore,
-                              body: job.serialize
+                              body: job.serialize.merge(guid: job.job_id)
                             }
         end
 
