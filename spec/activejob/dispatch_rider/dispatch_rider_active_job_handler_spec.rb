@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe DispatchRiderActiveJobHandler do
+describe ActiveJob::DispatchRider::JobHandler do
 
   let!(:job_class) {
     job_class = Class.new(ActiveJob::Base) do

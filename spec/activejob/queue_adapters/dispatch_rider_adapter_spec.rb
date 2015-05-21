@@ -50,7 +50,7 @@ describe ActiveJob::QueueAdapters::DispatchRiderAdapter do
       example("queued item") {
         foo_job_class.perform_later foo: "bar"
 
-        expect(foo_queued_item["subject"]).to eq("dispatch_rider_active_job_handler")
+        expect(foo_queued_item["subject"]).to eq("foo_aj_job")
         expect(foo_queued_item["body"]["job_class"]).to eq("FooAjJob")
         expect(foo_queued_item["body"]["queue_name"]).to eq("foo")
         expect(foo_queued_item["body"]["arguments"].first).to include("foo" => "bar")

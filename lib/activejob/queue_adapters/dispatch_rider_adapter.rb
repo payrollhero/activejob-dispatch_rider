@@ -7,7 +7,7 @@ module ActiveJob
         def enqueue(job)
           publisher.publish destinations: Array(job.queue_name),
                             message: {
-                              subject: "dispatch_rider_active_job_handler",
+                              subject: job.class.name.underscore,
                               body: job.serialize
                             }
         end

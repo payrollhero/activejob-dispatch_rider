@@ -1,12 +1,15 @@
-require "activejob/dispatch_rider/version"
 require "active_job"
 require "dispatch-rider"
-require "dispatch_rider_active_job_handler"
 
 module ActiveJob
   module DispatchRider
-    # Your code goes here...
   end
 end
 
-require "activejob/queue_adapters/dispatch_rider_adapter"
+require_relative "dispatch_rider/version"
+require_relative "dispatch_rider/job_handler"
+require_relative "dispatch_rider/handler_registrar_fallback"
+require_relative "queue_adapters/dispatch_rider_adapter"
+
+# Handle all unregistered messages as messages coming from ActiveJobs.
+DispatchRider::Registrars::Handler.prepend ActiveJob::DispatchRider::HandlerRegistrarFallback
