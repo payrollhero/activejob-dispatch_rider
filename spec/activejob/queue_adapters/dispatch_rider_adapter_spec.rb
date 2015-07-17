@@ -65,10 +65,15 @@ describe ActiveJob::QueueAdapters::DispatchRiderAdapter do
     end
 
     describe ".enqueue_at" do
-      let(:job) { double :job }
-      let(:timestamp) { Time.now }
+      let(:tomorrow_midnight) { Date.tomorrow.midnight }
 
-      example { expect { adapter.enqueue_at job, timestamp }.to raise_error NotImplementedError }
+      example {
+        expect {
+          foo_job_class.set(wait_until: tomorrow_midnight).perform_later foo: "bar"
+        }.to change(DispatchRider::ScheduledJob, :count).by 1
+
+        expect(DispatchRider::ScheduledJob.last.scheduled_at).to eq tomorrow_midnight
+      }
     end
   end
 end
