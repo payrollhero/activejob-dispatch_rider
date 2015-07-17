@@ -1,4 +1,6 @@
 require "codeclimate-test-reporter"
+require "sqlite3"
+
 CodeClimate::TestReporter.start
 
 require "activejob/dispatch_rider"
@@ -109,4 +111,20 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  config.before(:suite) do
+    FileUtils.mkdir_p "tmp"
+    FileUtils.rm_f "tmp/lite.db"
+    FileUtils.rm_rf "spectmp"
+    SQLite3::Database.new "tmp/lite.db"
+    ActiveRecord::Base.establish_connection adapter: :sqlite3, database: File.dirname(__FILE__) + "tmp/lite.db"
+    ActiveRecord::Schema.define(version: 1) do
+      extend DispatchRider::ScheduledJob::Migration
+      create_scheduled_jobs_table
+    end
+  end
+
+  config.after do
+    DispatchRider::ScheduledJob.destroy_all
+  end
 end
