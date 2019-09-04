@@ -1,7 +1,4 @@
-require "codeclimate-test-reporter"
 require "sqlite3"
-
-CodeClimate::TestReporter.start
 
 require "activejob/dispatch_rider"
 
