@@ -2,7 +2,6 @@ module ActiveJob
   module QueueAdapters
     # Adds support for DispatchRider to ActiveJob.
     class DispatchRiderAdapter
-      class << self
         # @param [ActiveJob::Base] job
         def enqueue(job)
           publisher.publish job_details_for(job)
@@ -31,7 +30,6 @@ module ActiveJob
             }
           }
         end
-      end
     end
   end
 end
