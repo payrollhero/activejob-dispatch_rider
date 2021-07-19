@@ -43,7 +43,7 @@ describe ActiveJob::QueueAdapters::DispatchRiderAdapter do
       end
 
       it("is called when performing later") {
-        expect(adapter).to receive(:enqueue).with instance_of(foo_job_class)
+        expect_any_instance_of(adapter).to receive(:enqueue).with instance_of(foo_job_class)
         foo_job_class.perform_later foo: "bar"
       }
 
