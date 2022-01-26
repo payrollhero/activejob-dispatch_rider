@@ -4,3 +4,4 @@ gemspec path: '..'
 
 gem 'rails', '~> 5.0.7'
 gem 'sqlite3', '< 1.4'
+gem "dispatch-rider", github: 'payrollhero/dispatch-rider', branch: 'aws-sdk-3.x-support' # "2.0.0"
