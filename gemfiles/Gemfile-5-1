@@ -1,6 +1,0 @@
-source 'https://rubygems.org'
-
-gemspec path: '..'
-
-gem 'rails', '~> 5.1.4'
-gem "dispatch-rider", github: 'payrollhero/dispatch-rider', branch: 'aws-sdk-3.x-support' # "2.0.0"
