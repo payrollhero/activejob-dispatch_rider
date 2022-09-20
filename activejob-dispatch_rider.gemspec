@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "activejob", '>= 5.2'
   spec.add_dependency "dispatch-rider", "~> 2.0"
   spec.add_development_dependency "bundler"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rake", ">= 10.0"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "sqlite3"
 end
