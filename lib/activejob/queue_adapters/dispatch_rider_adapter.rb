@@ -4,7 +4,7 @@ module ActiveJob
     class DispatchRiderAdapter
         # @param [ActiveJob::Base] job
         def enqueue(job)
-          publisher.publish job_details_for(job)
+          publisher.publish **job_details_for(job)
         end
 
         # @param [ActiveJob::Base] job
