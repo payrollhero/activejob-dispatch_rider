@@ -6,8 +6,8 @@ describe ActiveJob::DispatchRider::JobHandler do
     job_class = Class.new(ActiveJob::Base) do
       queue_as :foo
 
-      def perform(foo:)
-        "foo is #{foo}"
+      def perform(options)
+        "foo is #{options[:foo]}"
       end
     end
 

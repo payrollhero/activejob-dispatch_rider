@@ -1,4 +1,5 @@
 require "sqlite3"
+require 'fileutils'
 
 require "activejob/dispatch_rider"
 
