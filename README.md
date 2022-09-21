@@ -9,6 +9,8 @@
 
 'ActiveJob::DispatchRider' adds `DispatchRider` support for `ActiveJob`.
 
+Allow standard ActiveJob jobs to be run by Dispatch Rider.
+
 ## Installation
 
 Add this line to your application's Gemfile:
