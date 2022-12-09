@@ -12,7 +12,7 @@ module ActiveJob
         def enqueue_at(job, scheduled_at)
           scheduled_job_details = job_details_for(job).merge(scheduled_at: Time.at(scheduled_at))
 
-          ::DispatchRider::ScheduledJob.create! scheduled_job_details
+          ::DispatchRider::ScheduledJob.create! **scheduled_job_details
         end
 
         private
